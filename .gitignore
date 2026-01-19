@@ -1,0 +1,7 @@
+node_modules/
+.env
+debug_mention.js
+test_grammar.js
+test_mock_index.js
+stats.json
+match_cache.json

@@ -11,12 +11,13 @@ function loadVocab() {
         vocab = JSON.parse(data);
     } catch (err) {
         console.error("Errore caricamento vocabolario:", err);
+        // Fallback minimale per evitare crash
         vocab = {
-            soggetti: ["Dio"],
-            aggettivi: ["scordato"],
-            verbi: ["che tace"],
+            soggetti: [{ word: "Dio", gender: "M", number: "S" }],
+            aggettivi: [{ M_S: "rotto", F_S: "rotta", M_P: "rotti", F_P: "rotte" }],
+            verbi: [{ S: "cade", P: "cadono" }],
             complementi: ["nel vuoto"],
-            oggetti: ["nulla"]
+            oggetti: ["il nulla"]
         };
     }
 }
@@ -27,11 +28,9 @@ function loadStats() {
             const data = fs.readFileSync(STATS_PATH, 'utf8');
             stats = JSON.parse(data);
         } else {
-            console.log("Stats file non trovato, uso default.");
             stats = { template_weights: {} };
         }
     } catch (err) {
-        console.error("Errore caricamento stats:", err);
         stats = { template_weights: {} };
     }
 }
@@ -46,45 +45,139 @@ function saveStats() {
 
 function updateWeight(templateId, delta) {
     if (!stats) loadStats();
-
     const currentWeight = stats.template_weights[templateId] || 10;
     let newWeight = currentWeight + delta;
-    if (newWeight < 1) newWeight = 1; // Minimo peso 1
-
+    if (newWeight < 1) newWeight = 1;
     stats.template_weights[templateId] = newWeight;
-    console.log(`Aggiornato peso template ${templateId}: ${currentWeight} -> ${newWeight}`);
     saveStats();
 }
 
 function getRandom(arr) {
-    if (!arr || arr.length === 0) return "";
+    if (!arr || arr.length === 0) return null;
     return arr[Math.floor(Math.random() * arr.length)];
 }
 
-// Struttura dati template con ID
+// === Grammar Helpers ===
+
+function getSubject() {
+    return getRandom(vocab.soggetti);
+}
+
+function getAdjective(subject) {
+    const adj = getRandom(vocab.aggettivi);
+    if (!adj) return "";
+    
+    const key = `${subject.gender}_${subject.number}`; // es. "M_S", "F_P"
+    return adj[key] || adj["M_S"] || "indefinito"; // Fallback
+}
+
+function getVerb(subject) {
+    const v = getRandom(vocab.verbi);
+    if (!v) return "";
+    
+    return v[subject.number] || v["S"]; // "S" or "P"
+}
+
+function getObject() {
+    return getRandom(vocab.oggetti);
+}
+
+function getComplement() {
+    return getRandom(vocab.complementi);
+}
+
+// === Templates ===
+
 const templates = [
-    { id: "1", fn: () => `${getRandom(vocab.soggetti)} ${getRandom(vocab.aggettivi)}` },
-    { id: "2", fn: () => `${getRandom(vocab.soggetti)} ${getRandom(vocab.aggettivi)} ${getRandom(vocab.verbi)} ${getRandom(vocab.complementi)}` },
-    { id: "3", fn: () => `${getRandom(vocab.soggetti)} ${getRandom(vocab.aggettivi)} con ${getRandom(vocab.oggetti)}` },
-    { id: "4", fn: () => `${getRandom(vocab.soggetti)} ${getRandom(vocab.aggettivi)} ${getRandom(vocab.aggettivi)}` },
-    { id: "5", fn: () => `${getRandom(vocab.soggetti)} ${getRandom(vocab.verbi)} ${getRandom(vocab.oggetti)}` },
-    { id: "6", fn: () => `${getRandom(vocab.soggetti)} ${getRandom(vocab.aggettivi)} ${getRandom(vocab.complementi)}` }
+    // 1. Semplice: S + Adj
+    { 
+        id: "simple_1", 
+        fn: (target) => {
+            const s = getSubject();
+            return `${s.word} ${getAdjective(s)}`;
+        }
+    },
+    // 2. Classico: S + Adj + che + V + Compl
+    { 
+        id: "classic_rel", 
+        fn: (target) => {
+            const s = getSubject();
+            return `${s.word} ${getAdjective(s)} che ${getVerb(s)} ${getComplement()}`;
+        }
+    },
+    // 3. Transitivo: S + V + Obj
+    { 
+        id: "transitive", 
+        fn: (target) => {
+            const s = getSubject();
+            // Senza "che", è una frase principale: "Dio cane mangia una mela"
+            // Ma spesso suona meglio come "Dio cane che mangia..." per le bestemmie.
+            // Se vogliamo frase di senso compiuto: "Dio è cane" (ma il vocabolario è strutturato per insulti diretti)
+            // Usiamo lo stile "invocazione": "Dio cane che..."
+            return `${s.word} ${getAdjective(s)} che ${getVerb(s)} ${getObject()}`;
+        }
+    },
+    // 4. Doppio Aggettivo: S + Adj + e + Adj
+    { 
+        id: "double_adj", 
+        fn: (target) => {
+            const s = getSubject();
+            return `${s.word} ${getAdjective(s)} e ${getAdjective(s)}`;
+        }
+    },
+    // 5. Complesso: S + Adj + che + V + Compl + e + V + Obj
+    { 
+        id: "complex_1", 
+        fn: (target) => {
+            const s = getSubject();
+            return `${s.word} ${getAdjective(s)} che ${getVerb(s)} ${getComplement()} e ${getVerb(s)} ${getObject()}`;
+        }
+    },
+    // 6. Targeting Diretto (Se c'è target): Caro Target, S + ...
+    {
+        id: "targeted_intro",
+        reqTarget: true,
+        fn: (target) => {
+            const s = getSubject();
+            return `Ascolta bene ${target}, ${s.word} ${getAdjective(s)} che ${getVerb(s)} ${getComplement()}`;
+        }
+    },
+     // 7. Targeting Integrato: S + Adj + che + V + Target
+     {
+        id: "targeted_victim",
+        reqTarget: true,
+        fn: (target) => {
+            const s = getSubject();
+            // Forziamo verbi transitivi o che hanno senso con oggetto persona?
+            // Per ora usiamo verbi generici, potrebbe uscire "Dio cane che esplode Target" (un po' strano)
+            // Meglio: "che inseguono" o "che picchiano".
+            // Dato che i verbi sono generici, usiamo "contro" o simile se necessario, ma proviamo diretto.
+            return `${s.word} ${getAdjective(s)} che ${getVerb(s)} contro ${target}`;
+        }
+    }
 ];
 
-function getWeightedRandomTemplate() {
+function getWeightedRandomTemplate(hasTarget) {
     if (!stats) loadStats();
 
-    // Calcola il peso totale
+    // Filtra template in base alla presenza del target
+    const availableTemplates = templates.filter(t => {
+        if (hasTarget) return true; // Se c'è target, tutto va bene (quelli reqTarget saranno favoriti? No, roulette)
+        return !t.reqTarget; // Se non c'è target, escludi quelli che lo richiedono
+    });
+
     let totalWeight = 0;
     const weights = [];
 
-    for (const t of templates) {
-        const w = stats.template_weights[t.id] || 10; // Default peso 10
+    for (const t of availableTemplates) {
+        let w = stats.template_weights[t.id] || 10;
+        // Boost per template con target se il target è presente
+        if (hasTarget && t.reqTarget) w *= 2; 
+        
         weights.push({ id: t.id, weight: w, template: t });
         totalWeight += w;
     }
 
-    // Roulette selection
     let randomValue = Math.random() * totalWeight;
     for (const item of weights) {
         randomValue -= item.weight;
@@ -92,14 +185,22 @@ function getWeightedRandomTemplate() {
             return item.template;
         }
     }
-    return templates[templates.length - 1]; // Fallback
+    return availableTemplates[availableTemplates.length - 1];
 }
 
-function generateInsult() {
+function generateInsult(targetUser) {
     if (!vocab) loadVocab();
 
-    const selectedTemplate = getWeightedRandomTemplate();
-    const text = selectedTemplate.fn();
+    const selectedTemplate = getWeightedRandomTemplate(!!targetUser);
+    
+    // Se il template richiede target ma non c'è (caso raro, fallback), evito crash
+    let text = "";
+    try {
+        text = selectedTemplate.fn(targetUser || "chiunque");
+    } catch (e) {
+        console.error("Errore generazione template:", e);
+        text = "Errore divino.";
+    }
 
     return {
         text: text,

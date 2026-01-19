@@ -38,8 +38,22 @@ client.on('messageCreate', async message => {
     const triggers = ['!poesia', '!bestemmia', '!insulto', '!verbo', '!amen'];
 
     if (isMentioned || triggers.some(t => content.includes(t))) {
+        let targetString = null;
+
+        try {
+            // Cerca un target: il primo utente menzionato che NON è il bot
+            const targetUser = message.mentions.users.find(u => u.id !== client.user.id);
+            if (targetUser) {
+                targetString = targetUser.toString();
+            }
+        } catch (err) {
+            console.error("Errore lettura menzioni:", err);
+        }
+
+        console.log(`Richiesta da ${message.author.tag} | Target: ${targetString || "Nessuno"}`);
+
         // Genera la frase
-        const insultData = generateInsult(); // Ritorna { text, templateId }
+        const insultData = generateInsult(targetString); // Ritorna { text, templateId }
 
         try {
             const sentMessage = await message.reply(insultData.text);

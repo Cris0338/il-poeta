@@ -1,156 +1,627 @@
 {
     "soggetti": [
-        "Dio",
-        "Il Signore",
-        "Il Padre Eterno",
-        "Dio Padre",
-        "Gesù",
-        "Gesù Cristo",
-        "Cristo Re",
-        "Il Figlio",
-        "Lo Spirito Santo",
-        "La Madonna",
-        "Maria Vergine",
-        "La Vergine Maria",
-        "Madonna Immacolata",
-        "Madonna Addolorata",
-        "Madonna Assunta",
-        "San Giuseppe",
-        "San Pietro",
-        "San Paolo",
-        "San Giovanni",
-        "San Michele Arcangelo",
-        "San Gabriele Arcangelo",
-        "San Raffaele Arcangelo",
-        "L'Arcangelo Michele",
-        "L'Arcangelo Gabriele",
-        "L'Arcangelo Raffaele",
-        "Tutti i Santi",
-        "Il Papa",
-        "Il Vaticano",
-        "La Chiesa",
-        "La Trinità",
-        "L'Altissimo",
-        "L'Onnipotente",
-        "Il Creatore",
-        "Il Redentore",
-        "L'Agnello di Dio",
-        "Il Messia",
-        "Allah",
-        "Maometto",
-        "Yahweh",
-        "Mosè",
-        "Budda",
-        "Buddha",
-        "Krishna",
-        "Shiva",
-        "Vishnu",
-        "Brahma",
-        "Anubi"
+        {
+            "word": "Dio",
+            "gender": "M",
+            "number": "S"
+        },
+        {
+            "word": "Il Signore",
+            "gender": "M",
+            "number": "S"
+        },
+        {
+            "word": "Il Padre Eterno",
+            "gender": "M",
+            "number": "S"
+        },
+        {
+            "word": "Gesù",
+            "gender": "M",
+            "number": "S"
+        },
+        {
+            "word": "Cristo Re",
+            "gender": "M",
+            "number": "S"
+        },
+        {
+            "word": "Lo Spirito Santo",
+            "gender": "M",
+            "number": "S"
+        },
+        {
+            "word": "La Madonna",
+            "gender": "F",
+            "number": "S"
+        },
+        {
+            "word": "Maria Vergine",
+            "gender": "F",
+            "number": "S"
+        },
+        {
+            "word": "La Vergine Maria",
+            "gender": "F",
+            "number": "S"
+        },
+        {
+            "word": "San Giuseppe",
+            "gender": "M",
+            "number": "S"
+        },
+        {
+            "word": "San Pietro",
+            "gender": "M",
+            "number": "S"
+        },
+        {
+            "word": "San Paolo",
+            "gender": "M",
+            "number": "S"
+        },
+        {
+            "word": "L'Arcangelo Michele",
+            "gender": "M",
+            "number": "S"
+        },
+        {
+            "word": "Tutti i Santi",
+            "gender": "M",
+            "number": "P"
+        },
+        {
+            "word": "Il Papa",
+            "gender": "M",
+            "number": "S"
+        },
+        {
+            "word": "Il Vaticano",
+            "gender": "M",
+            "number": "S"
+        },
+        {
+            "word": "La Chiesa",
+            "gender": "F",
+            "number": "S"
+        },
+        {
+            "word": "La Trinità",
+            "gender": "F",
+            "number": "S"
+        },
+        {
+            "word": "L'Altissimo",
+            "gender": "M",
+            "number": "S"
+        },
+        {
+            "word": "Il Creatore",
+            "gender": "M",
+            "number": "S"
+        },
+        {
+            "word": "Il Messia",
+            "gender": "M",
+            "number": "S"
+        },
+        {
+            "word": "Allah",
+            "gender": "M",
+            "number": "S"
+        },
+        {
+            "word": "Maometto",
+            "gender": "M",
+            "number": "S"
+        },
+        {
+            "word": "Mosè",
+            "gender": "M",
+            "number": "S"
+        },
+        {
+            "word": "Budda",
+            "gender": "M",
+            "number": "S"
+        },
+        {
+            "word": "Anubi",
+            "gender": "M",
+            "number": "S"
+        }
     ],
     "aggettivi": [
-        "cane",
-        "maiale",
-        "ladro",
-        "metallico",
-        "nucleare",
-        "radioattivo",
-        "ingegnere",
-        "cornuto",
-        "impalato",
-        "sodomizzato",
-        "lebbrosso",
-        "bionico",
-        "idraulico",
-        "arrugginito",
-        "tossico",
-        "quantistico",
-        "cibernetico",
-        "mutante",
-        "esplosivo",
-        "lubrico",
-        "arrapato",
-        "spelacchiato",
-        "marcio",
-        "putrido",
-        "incrostato",
-        "puzzolente",
-        "blasfemo",
-        "sacrilego",
-        "infetto",
-        "contaminato",
-        "sgangherato",
-        "delirante",
-        "decomposto",
-        "ossidato",
-        "viscido",
-        "bavoso",
-        "fradicio",
-        "sfatto",
-        "deformato",
-        "incazzato",
-        "perverso",
-        "osceno",
-        "maledetto",
-        "scassato",
-        "obeso",
-        "stronzo",
-        "cazzuto",
-        "rottinculo",
-        "figlio-di-puttana",
-        "da-bordello"
+        {
+            "M_S": "cane",
+            "F_S": "cagna",
+            "M_P": "cani",
+            "F_P": "cagne"
+        },
+        {
+            "M_S": "maiale",
+            "F_S": "maiala",
+            "M_P": "maiali",
+            "F_P": "maiale"
+        },
+        {
+            "M_S": "ladro",
+            "F_S": "ladra",
+            "M_P": "ladri",
+            "F_P": "ladre"
+        },
+        {
+            "M_S": "metallico",
+            "F_S": "metallica",
+            "M_P": "metallici",
+            "F_P": "metalliche"
+        },
+        {
+            "M_S": "nucleare",
+            "F_S": "nucleare",
+            "M_P": "nucleari",
+            "F_P": "nucleari"
+        },
+        {
+            "M_S": "radioattivo",
+            "F_S": "radioattiva",
+            "M_P": "radioattivi",
+            "F_P": "radioattive"
+        },
+        {
+            "M_S": "ingegnere",
+            "F_S": "ingegnere",
+            "M_P": "ingegneri",
+            "F_P": "ingegneri"
+        },
+        {
+            "M_S": "cornuto",
+            "F_S": "cornuta",
+            "M_P": "cornuti",
+            "F_P": "cornute"
+        },
+        {
+            "M_S": "impalato",
+            "F_S": "impalata",
+            "M_P": "impalati",
+            "F_P": "impalate"
+        },
+        {
+            "M_S": "sodomizzato",
+            "F_S": "sodomizzata",
+            "M_P": "sodomizzati",
+            "F_P": "sodomizzate"
+        },
+        {
+            "M_S": "lebbros",
+            "F_S": "lebbrosa",
+            "M_P": "lebbrosi",
+            "F_P": "lebbrose"
+        },
+        {
+            "M_S": "bionico",
+            "F_S": "bionica",
+            "M_P": "bionici",
+            "F_P": "bioniche"
+        },
+        {
+            "M_S": "idraulico",
+            "F_S": "idraulica",
+            "M_P": "idraulici",
+            "F_P": "idrauliche"
+        },
+        {
+            "M_S": "arrugginito",
+            "F_S": "arrugginita",
+            "M_P": "arrugginiti",
+            "F_P": "arrugginite"
+        },
+        {
+            "M_S": "tossico",
+            "F_S": "tossica",
+            "M_P": "tossici",
+            "F_P": "tossiche"
+        },
+        {
+            "M_S": "quantistico",
+            "F_S": "quantistica",
+            "M_P": "quantistici",
+            "F_P": "quantistiche"
+        },
+        {
+            "M_S": "cibernetico",
+            "F_S": "cibernetica",
+            "M_P": "cibernetici",
+            "F_P": "cibernetiche"
+        },
+        {
+            "M_S": "mutante",
+            "F_S": "mutante",
+            "M_P": "mutanti",
+            "F_P": "mutanti"
+        },
+        {
+            "M_S": "esplosivo",
+            "F_S": "esplosiva",
+            "M_P": "esplosivi",
+            "F_P": "esplosive"
+        },
+        {
+            "M_S": "lubrico",
+            "F_S": "lubrica",
+            "M_P": "lubrici",
+            "F_P": "lubriche"
+        },
+        {
+            "M_S": "arrapato",
+            "F_S": "arrapata",
+            "M_P": "arrapati",
+            "F_P": "arrapate"
+        },
+        {
+            "M_S": "spelacchiato",
+            "F_S": "spelacchiata",
+            "M_P": "spelacchiati",
+            "F_P": "spelacchiate"
+        },
+        {
+            "M_S": "marcio",
+            "F_S": "marcia",
+            "M_P": "marci",
+            "F_P": "marce"
+        },
+        {
+            "M_S": "putrido",
+            "F_S": "putrida",
+            "M_P": "putridi",
+            "F_P": "putride"
+        },
+        {
+            "M_S": "incrostato",
+            "F_S": "incrostata",
+            "M_P": "incrostati",
+            "F_P": "incrostate"
+        },
+        {
+            "M_S": "puzzolente",
+            "F_S": "puzzolente",
+            "M_P": "puzzolenti",
+            "F_P": "puzzolenti"
+        },
+        {
+            "M_S": "blasfemo",
+            "F_S": "blasfema",
+            "M_P": "blasfemi",
+            "F_P": "blasfeme"
+        },
+        {
+            "M_S": "sacrilego",
+            "F_S": "sacrilega",
+            "M_P": "sacrileghi",
+            "F_P": "sacrileghe"
+        },
+        {
+            "M_S": "infetto",
+            "F_S": "infetta",
+            "M_P": "infetti",
+            "F_P": "infette"
+        },
+        {
+            "M_S": "contaminato",
+            "F_S": "contaminata",
+            "M_P": "contaminati",
+            "F_P": "contaminate"
+        },
+        {
+            "M_S": "sgangherato",
+            "F_S": "sgangherata",
+            "M_P": "sgangherati",
+            "F_P": "sgangherate"
+        },
+        {
+            "M_S": "delirante",
+            "F_S": "delirante",
+            "M_P": "deliranti",
+            "F_P": "deliranti"
+        },
+        {
+            "M_S": "decomposto",
+            "F_S": "decomposta",
+            "M_P": "decomposti",
+            "F_P": "decomposte"
+        },
+        {
+            "M_S": "ossidato",
+            "F_S": "ossidata",
+            "M_P": "ossidati",
+            "F_P": "ossidate"
+        },
+        {
+            "M_S": "viscido",
+            "F_S": "viscida",
+            "M_P": "viscidi",
+            "F_P": "viscide"
+        },
+        {
+            "M_S": "bavoso",
+            "F_S": "bavosa",
+            "M_P": "bavosi",
+            "F_P": "bavose"
+        },
+        {
+            "M_S": "fradicio",
+            "F_S": "fradicia",
+            "M_P": "fradici",
+            "F_P": "fradicie"
+        },
+        {
+            "M_S": "sfatto",
+            "F_S": "sfatta",
+            "M_P": "sfatti",
+            "F_P": "sfatte"
+        },
+        {
+            "M_S": "deformato",
+            "F_S": "deformata",
+            "M_P": "deformati",
+            "F_P": "deformate"
+        },
+        {
+            "M_S": "incazzato",
+            "F_S": "incazzata",
+            "M_P": "incazzati",
+            "F_P": "incazzate"
+        },
+        {
+            "M_S": "perverso",
+            "F_S": "perversa",
+            "M_P": "perversi",
+            "F_P": "perverse"
+        },
+        {
+            "M_S": "osceno",
+            "F_S": "oscena",
+            "M_P": "osceni",
+            "F_P": "oscene"
+        },
+        {
+            "M_S": "maledetto",
+            "F_S": "maledetta",
+            "M_P": "maledetti",
+            "F_P": "maledette"
+        },
+        {
+            "M_S": "scassato",
+            "F_S": "scassata",
+            "M_P": "scassati",
+            "F_P": "scassate"
+        },
+        {
+            "M_S": "obeso",
+            "F_S": "obesa",
+            "M_P": "obesi",
+            "F_P": "obese"
+        },
+        {
+            "M_S": "stronzo",
+            "F_S": "stronza",
+            "M_P": "stronzi",
+            "F_P": "stronze"
+        },
+        {
+            "M_S": "cazzuto",
+            "F_S": "cazzuta",
+            "M_P": "cazzuti",
+            "F_P": "cazzute"
+        },
+        {
+            "M_S": "rottinculo",
+            "F_S": "rottinculo",
+            "M_P": "rottinculo",
+            "F_P": "rottinculo"
+        },
+        {
+            "M_S": "figlio di puttana",
+            "F_S": "figlia di puttana",
+            "M_P": "figli di puttana",
+            "F_P": "figlie di puttana"
+        },
+        {
+            "M_S": "da bordello",
+            "F_S": "da bordello",
+            "M_P": "da bordello",
+            "F_P": "da bordello"
+        }
     ],
     "verbi": [
-        "che corre",
-        "che urla",
-        "che esplode",
-        "che vomita",
-        "che salda",
-        "che caga",
-        "che pedala",
-        "che sgranocchia",
-        "che scoreggia",
-        "che bestemmia",
-        "che sbava",
-        "che rantola",
-        "che schiuma",
-        "che piscia",
-        "che sbraita",
-        "che si incazza",
-        "che si contorce",
-        "che si dimena",
-        "che barcolla",
-        "che rotola",
-        "che si autodistrugge",
-        "che prende fuoco",
-        "che implode",
-        "che sanguina",
-        "che sbatte la testa",
-        "che smadonna",
-        "che sputa",
-        "che rutta",
-        "che vomita l’anima",
-        "che grida come un ossesso",
-        "che piange come un bastardo",
-        "che frigna",
-        "che scopa male",
-        "che si spacca",
-        "che collassa",
-        "che deraglia",
-        "che si caga addosso",
-        "che perde pezzi",
-        "che fonde",
-        "che va in corto",
-        "che schizza ovunque",
-        "che si rompe il cazzo",
-        "che sclera",
-        "che fa un casino infernale",
-        "che si smonta",
-        "che vibra come un vibratore",
-        "che si schianta",
-        "che implode male",
-        "che muore dentro",
-        "che fa schifo"
+        {
+            "S": "corre",
+            "P": "corrono"
+        },
+        {
+            "S": "urla",
+            "P": "urlano"
+        },
+        {
+            "S": "esplode",
+            "P": "esplodono"
+        },
+        {
+            "S": "vomita",
+            "P": "vomitano"
+        },
+        {
+            "S": "salda",
+            "P": "saldano"
+        },
+        {
+            "S": "caga",
+            "P": "cagano"
+        },
+        {
+            "S": "sgranocchia",
+            "P": "sgranocchiano"
+        },
+        {
+            "S": "scoreggia",
+            "P": "scoreggiano"
+        },
+        {
+            "S": "bestemmia",
+            "P": "bestemmiano"
+        },
+        {
+            "S": "sbava",
+            "P": "sbavano"
+        },
+        {
+            "S": "rantola",
+            "P": "rantolano"
+        },
+        {
+            "S": "schiuma",
+            "P": "schiumano"
+        },
+        {
+            "S": "piscia",
+            "P": "pisciano"
+        },
+        {
+            "S": "sbraita",
+            "P": "sbraitano"
+        },
+        {
+            "S": "si incazza",
+            "P": "si incazzano"
+        },
+        {
+            "S": "si contorce",
+            "P": "si contorcono"
+        },
+        {
+            "S": "si dimena",
+            "P": "si dimenano"
+        },
+        {
+            "S": "barcolla",
+            "P": "barcollano"
+        },
+        {
+            "S": "rotola",
+            "P": "rotolano"
+        },
+        {
+            "S": "si autodistrugge",
+            "P": "si autodistruggono"
+        },
+        {
+            "S": "prende fuoco",
+            "P": "prendono fuoco"
+        },
+        {
+            "S": "implode",
+            "P": "implodono"
+        },
+        {
+            "S": "sanguina",
+            "P": "sanguinano"
+        },
+        {
+            "S": "sbatte la testa",
+            "P": "sbattono la testa"
+        },
+        {
+            "S": "smadonna",
+            "P": "smadonnano"
+        },
+        {
+            "S": "sputa",
+            "P": "sputano"
+        },
+        {
+            "S": "rutta",
+            "P": "ruttano"
+        },
+        {
+            "S": "vomita l’anima",
+            "P": "vomitano l'anima"
+        },
+        {
+            "S": "grida come un ossesso",
+            "P": "gridano come ossessi"
+        },
+        {
+            "S": "piange come un bastardo",
+            "P": "piangono come bastardi"
+        },
+        {
+            "S": "scopa male",
+            "P": "scopano male"
+        },
+        {
+            "S": "si spacca",
+            "P": "si spaccano"
+        },
+        {
+            "S": "collassa",
+            "P": "collassano"
+        },
+        {
+            "S": "deraglia",
+            "P": "deragliano"
+        },
+        {
+            "S": "si caga addosso",
+            "P": "si cagano addosso"
+        },
+        {
+            "S": "perde pezzi",
+            "P": "perdono pezzi"
+        },
+        {
+            "S": "fonde",
+            "P": "fondono"
+        },
+        {
+            "S": "va in corto",
+            "P": "vanno in corto"
+        },
+        {
+            "S": "schizza ovunque",
+            "P": "schizzano ovunque"
+        },
+        {
+            "S": "si rompe il cazzo",
+            "P": "si rompono il cazzo"
+        },
+        {
+            "S": "sclera",
+            "P": "sclerano"
+        },
+        {
+            "S": "fa un casino infernale",
+            "P": "fanno un casino infernale"
+        },
+        {
+            "S": "si smonta",
+            "P": "si smontano"
+        },
+        {
+            "S": "vibra come un vibratore",
+            "P": "vibrano come vibratori"
+        },
+        {
+            "S": "si schianta",
+            "P": "si schiantano"
+        },
+        {
+            "S": "muore dentro",
+            "P": "muoiono dentro"
+        },
+        {
+            "S": "fa schifo",
+            "P": "fanno schifo"
+        }
     ],
     "complementi": [
         "nella valle dei cazzi magnetici",
