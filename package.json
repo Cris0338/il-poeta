@@ -1,0 +1,21 @@
+{
+    "name": "il-poeta",
+    "version": "1.0.0",
+    "description": "Bot discord generatore di bestemmie articolate",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "test": "node test_generator.js"
+    },
+    "keywords": [
+        "discord",
+        "bot",
+        "fun"
+    ],
+    "author": "Antigravity",
+    "license": "ISC",
+    "dependencies": {
+        "discord.js": "^14.14.1",
+        "dotenv": "^16.3.1"
+    }
+}
